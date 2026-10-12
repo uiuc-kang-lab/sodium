@@ -3,6 +3,7 @@ from utils.lib import parse_result_from_content_list
 from utils.log import cell_summary, document_func_call
 
 from .page_explorer import inspect_page
+from utils.constant import AGENT_MODEL
 
 def atp_bfs(client, log_file, base_domain, query, primary_key, primary_key_val, col, given_info, k=10, max_depth=5):
     if not base_domain.startswith(("http://", "https://")):
@@ -30,7 +31,7 @@ def atp_bfs(client, log_file, base_domain, query, primary_key, primary_key_val, 
             if url in visited:
                 continue
             visited.add(url) 
-            given_info, next_level_links, proceed, source_url, path_record_level, static = inspect_page(url, log_file, query, primary_key, primary_key_val, col, given_info, client)
+            given_info, next_level_links, proceed, source_url, path_record_level, static = inspect_page(url, None, log_file, query, primary_key, primary_key_val, col, given_info, client)
             path_record.update(path_record_level)
 
             if col in given_info:
@@ -62,7 +63,7 @@ def augment_select_rank(candidate_urls, query, primary_key, primary_key_val, col
     )
 
     response = client.responses.create(
-        model="gpt-5",
+        model=AGENT_MODEL,
         reasoning={"effort": "high"},
         input=prompt,
     )

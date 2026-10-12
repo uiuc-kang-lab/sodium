@@ -43,7 +43,7 @@ def sodium_agent(query, schema, primary_key, primary_key_vals, output_folder, do
                 document_func_call(log_file, "upcache", None, None)
 
                 if upper_source_static is not None and upper_source and len(str(upper_source)) > 0:
-                    row, next_level_links, proceed, upper_source, path_record_level = inspect_page(upper_source, upper_source_static, log_file, query, primary_key, pk_val, col, row, client)
+                    row, next_level_links, proceed, upper_source, path_record_level, _ = inspect_page(upper_source, upper_source_static, log_file, query, primary_key, pk_val, col, row, client)
                     if col in row:
                         print(f"[Cache✓ up] ({pk_val}, {col}) -> using upper value")
                         source_row[col] = upper_source
@@ -60,7 +60,7 @@ def sodium_agent(query, schema, primary_key, primary_key_vals, output_folder, do
                 log_file = log_dir / "cache_manager.jsonl"
                 document_func_call(log_file, "leftcache", None, None)
                 if left_source_static is not None and left_source and len(str(left_source)) > 0:
-                    row, next_level_links, proceed, left_source, path_record_level = inspect_page(
+                    row, next_level_links, proceed, left_source, path_record_level, _ = inspect_page(
                         left_source, left_source_static, log_file, query, primary_key, pk_val, col, row, client
                     )
                     if col in row:

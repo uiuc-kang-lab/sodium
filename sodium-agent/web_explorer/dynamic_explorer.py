@@ -10,6 +10,7 @@ from urllib.parse import urljoin
 from utils.prompt import DYNAMIC_SYSTEM_PROMPT
 from utils.log import document_func_call
 import utils.dynamic_explorer_tools as dx
+from utils.constant import AGENT_MODEL
 
 def inspect_dynamic(
     url: str,
@@ -42,7 +43,7 @@ def inspect_dynamic(
             observation=observation,
             virtual_accessibility=virtual_accessibility,
             history=history,
-            model="gpt-5",
+            model=AGENT_MODEL,
             log_file=log_file
         )
 
@@ -161,7 +162,7 @@ def determine_step(
         '''
     if observation["screenshot_data_url"] is not None:
         resp = client.responses.create(
-            model="gpt-5",
+            model=AGENT_MODEL,
             input=[
                 {"role": "system", "content": DYNAMIC_SYSTEM_PROMPT},
                 {
@@ -175,7 +176,7 @@ def determine_step(
         )
     else:
         resp = client.responses.create(
-            model="gpt-5",
+            model=AGENT_MODEL,
             input=[
                 {"role": "system", "content": DYNAMIC_SYSTEM_PROMPT},
                 {

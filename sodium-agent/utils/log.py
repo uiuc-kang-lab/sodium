@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from utils.constant import COST_DICT
+from utils.constant import COST_DICT, AGENT_MODEL
 
 def document_func_call(
     log_file,
@@ -19,8 +19,8 @@ def document_func_call(
     cost = None
     if input_tokens is not None and output_tokens is not None:
         cost = (
-            input_tokens * COST_DICT["gpt-5"]["cost_per_input_token"]
-            + output_tokens * COST_DICT["gpt-5"]["cost_per_output_token"]
+            input_tokens * COST_DICT[AGENT_MODEL]["cost_per_input_token"]
+            + output_tokens * COST_DICT[AGENT_MODEL]["cost_per_output_token"]
         )
 
     record = {

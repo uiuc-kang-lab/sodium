@@ -67,5 +67,13 @@ COST_DICT = {
     "gpt-5": {
         "cost_per_input_token": 1.25e-06,
         "cost_per_output_token": 10e-06,
-    }
+    },
+    "gpt-5-2025-08-07": {
+        "cost_per_input_token": 1.25e-06,
+        "cost_per_output_token": 10e-06,
+    },
 }
+
+# Snapshot reported in the paper; pinned so runs stay reproducible as the
+# floating "gpt-5" alias moves.
+AGENT_MODEL = "gpt-5-2025-08-07"

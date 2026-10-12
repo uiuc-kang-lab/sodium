@@ -4,6 +4,7 @@ from utils.lib import parse_result_from_content
 from utils.prompt import CHECK_SD
 from utils.log import document_func_call
 from utils.dynamic_explorer_tools import load_page
+from utils.constant import AGENT_MODEL
 
 def decide_sd(url, query, primary_key, primary_key_val, col, given_info, client, log_file):
     base_url = None
@@ -28,7 +29,7 @@ def decide_sd(url, query, primary_key, primary_key_val, col, given_info, client,
         col=col
     )
     response = client.responses.create(
-        model="gpt-5",
+        model=AGENT_MODEL,
         reasoning={"effort": "high"},
         input=[
             {

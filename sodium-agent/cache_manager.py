@@ -1,6 +1,7 @@
 from utils.prompt import PATH_SEARCH
 from utils.log import document_func_call
 from utils.lib import parse_result_from_content_list
+from utils.constant import AGENT_MODEL
 
 def discover_path(query, primary_key, primary_key_val, col, upper_primary_key_val, upper_col, search_path_up, left_primary_key_val, left_col, search_path_left, given_info, client, log_file, k=5):
     prompt = PATH_SEARCH.format(
@@ -19,7 +20,7 @@ def discover_path(query, primary_key, primary_key_val, col, upper_primary_key_va
     )
 
     response = client.responses.create(
-        model="gpt-5",
+        model=AGENT_MODEL,
         reasoning={"effort": "high"},
         input=prompt,
     )

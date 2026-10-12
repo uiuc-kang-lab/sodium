@@ -13,6 +13,7 @@ from playwright.sync_api import (
 from utils.prompt import INSPECT_PAGE
 from utils.lib import parse_result_from_content, _normalize_url_variants, url_to_hash, image_to_data_url
 from utils.log import document_func_call
+from utils.constant import AGENT_MODEL
 
 def inspect_static(url, query, primary_key, primary_key_val, col, client, given_info, log_file):
     proceed = True
@@ -38,7 +39,7 @@ def inspect_static(url, query, primary_key, primary_key_val, col, client, given_
         given_info=given_info
     )
     response = client.responses.create(
-        model="gpt-5",
+        model=AGENT_MODEL,
         reasoning={"effort": "high"},
         input=[
             {

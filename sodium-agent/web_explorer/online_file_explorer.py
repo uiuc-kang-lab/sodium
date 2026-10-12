@@ -9,6 +9,7 @@ from utils.lib import (
     image_to_data_url
 )
 from utils.log import document_func_call
+from utils.constant import AGENT_MODEL
 
 
 def _guess_ext_from_url(url: str) -> str:
@@ -100,7 +101,7 @@ def inspect_file(
             )
 
             response = client.responses.create(
-                model="gpt-5",
+                model=AGENT_MODEL,
                 reasoning={"effort": "high"},
                 input=[
                     {
@@ -156,7 +157,7 @@ def inspect_file(
                 image_url = image_to_data_url(png_path)
 
                 response = client.responses.create(
-                    model="gpt-5",
+                    model=AGENT_MODEL,
                     reasoning={"effort": "high"},
                     input=[
                         {

@@ -1,4 +1,7 @@
-# 🌍 SODIUM: From Open Web Data to Queryable Databases
+<h1 align="center">
+  <img src="./assets/icon-sodium.png" height="38" valign="middle">
+  SODIUM: From Open Web Data to Queryable Databases
+</h1>
 
 This repository contains the reproduction artifact for:
 **SODIUM: From Open Web Data to Queryable Databases**.

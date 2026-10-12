@@ -4,7 +4,7 @@ This folder contains the implementation of **SODIUM-Agent**.
 
 SODIUM-Agent consists of two sub-agents:
 
-### 🌐 Web Explorer (`./web_explorer.py`)
+### 🌐 Web Explorer (`./web_explorer/`)
 
 The web explorer is powered by the **ATP-BFS** algorithm, implemented in```./web_explorer/web_explorer.py```
 (specifically the `atp_bfs` function).
@@ -12,7 +12,7 @@ The web explorer is powered by the **ATP-BFS** algorithm, implemented in```./web
 ATP-BFS is executed through two components:
 
 - **Page Explorer** (`./web_explorer/page_explorer.py`)
-- **Link Processor** (`augment_select_rank` in `web_explorer.py`)
+- **Link Processor** (`augment_select_rank` in `./web_explorer/web_explorer.py`)
 
 The **page explorer** invokes different explorers depending on webpage types:
 
